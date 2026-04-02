@@ -6,23 +6,16 @@ public class TrainConsistApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        List<String> bogies = new ArrayList<>();
+        Set<String> bogieIds = new HashSet<>();
 
-        // Add bogies
-        bogies.add("Sleeper");
-        bogies.add("AC Chair");
-        bogies.add("First Class");
+        // Add bogie IDs (with duplicates)
+        bogieIds.add("BG101");
+        bogieIds.add("BG102");
+        bogieIds.add("BG103");
+        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG102"); // duplicate
 
-        System.out.println("After Adding Bogies: " + bogies);
-
-        // Remove a bogie
-        bogies.remove("AC Chair");
-        System.out.println("After Removing AC Chair: " + bogies);
-
-        // Check existence
-        System.out.println("Contains Sleeper? " + bogies.contains("Sleeper"));
-
-        // Final state
-        System.out.println("Final Bogie List: " + bogies);
+        // Display unique bogie IDs
+        System.out.println("Unique Bogie IDs: " + bogieIds);
     }
 }
