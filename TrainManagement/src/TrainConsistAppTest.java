@@ -5,11 +5,6 @@ import static org.junit.Assert.*;
 
 public class TrainConsistAppTest {
 
-    private List<Bogie> filter(List<Bogie> list, int threshold) {
-        return list.stream()
-                .filter(b -> b.capacity > threshold)
-                .collect(Collectors.toList());
-    }
 
     @Test
     public void testFilter_CapacityGreaterThanThreshold() {
@@ -19,7 +14,7 @@ public class TrainConsistAppTest {
                 new Bogie("First Class", 40)
         );
 
-        List<Bogie> result = filter(list, 60);
+        List<Bogie> result = TrainConsistApp.filter(list, 60);
 
         assertEquals(1, result.size());
         assertEquals("Sleeper", result.get(0).name);
@@ -31,7 +26,7 @@ public class TrainConsistAppTest {
                 new Bogie("Sleeper", 72)
         );
 
-        List<Bogie> result = filter(list, 72);
+        List<Bogie> result = TrainConsistApp.filter(list, 72);
 
         assertTrue(result.isEmpty());
     }
@@ -43,7 +38,7 @@ public class TrainConsistAppTest {
                 new Bogie("AC Chair", 60)
         );
 
-        List<Bogie> result = filter(list, 70);
+        List<Bogie> result = TrainConsistApp.filter(list, 70);
 
         assertEquals(1, result.size());
     }
@@ -56,7 +51,7 @@ public class TrainConsistAppTest {
                 new Bogie("Chair", 50)
         );
 
-        List<Bogie> result = filter(list, 70);
+        List<Bogie> result = TrainConsistApp.filter(list, 70);
 
         assertEquals(2, result.size());
     }
@@ -67,7 +62,7 @@ public class TrainConsistAppTest {
                 new Bogie("AC", 40)
         );
 
-        List<Bogie> result = filter(list, 100);
+        List<Bogie> result = TrainConsistApp.filter(list, 100);
 
         assertTrue(result.isEmpty());
     }
@@ -80,14 +75,14 @@ public class TrainConsistAppTest {
                 new Bogie("First Class", 40)
         );
 
-        List<Bogie> result = filter(list, 10);
+        List<Bogie> result = TrainConsistApp.filter(list, 10);
 
         assertEquals(3, result.size());
     }
 
     @Test
     public void testFilter_EmptyBogieList() {
-        List<Bogie> result = filter(new ArrayList<>(), 50);
+        List<Bogie> result = TrainConsistApp.filter(new ArrayList<>(), 50);
         assertTrue(result.isEmpty());
     }
 
@@ -98,7 +93,7 @@ public class TrainConsistAppTest {
                 new Bogie("AC Chair", 60)
         ));
 
-        filter(list, 60);
+        TrainConsistApp.filter(list, 60);
 
         assertEquals(2, list.size());
     }

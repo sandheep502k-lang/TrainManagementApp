@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Bogie {
     String name;
@@ -11,7 +12,11 @@ class Bogie {
 }
 
 public class TrainConsistApp {
-
+    public static List<Bogie> filter(List<Bogie> list, int threshold) {
+        return list.stream()
+                .filter(b -> b.capacity > threshold)
+                .collect(Collectors.toList());
+    }
     public static void main(String[] args) {
 
         System.out.println("=== Train Consist Management App ===");
