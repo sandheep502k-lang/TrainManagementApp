@@ -17,12 +17,12 @@ public class TrainConsistAppTest {
         List<Bogie> result = TrainConsistApp.filter(list, 60);
 
         assertEquals(1, result.size());
-        assertEquals("Sleeper", result.get(0).name);
+        assertEquals("Sleeper", result.getFirst().name);
     }
 
     @Test
     public void testFilter_CapacityEqualToThreshold() {
-        List<Bogie> list = Arrays.asList(
+        List<Bogie> list = List.of(
                 new Bogie("Sleeper", 72)
         );
 
@@ -58,7 +58,7 @@ public class TrainConsistAppTest {
 
     @Test
     public void testFilter_NoBogiesMatching() {
-        List<Bogie> list = Arrays.asList(
+        List<Bogie> list = List.of(
                 new Bogie("AC", 40)
         );
 

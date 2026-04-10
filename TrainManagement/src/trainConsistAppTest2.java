@@ -2,7 +2,7 @@ import java.util.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class TrainConsistAppTest2 {
+public class trainConsistAppTest2 {
 
     @Test
     public void testGrouping_BogiesGroupedByType() {
