@@ -1,8 +1,12 @@
-import java.util.*;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class TrainConsistAppTest3 {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
+public class TrainConsistApp3Test {
 
     @Test
     public void testReduce_TotalSeatCalculation() {
@@ -35,7 +39,7 @@ public class TrainConsistAppTest3 {
     @Test
     public void testReduce_SingleBogieCapacity() {
 
-        List<Bogie> list = Arrays.asList(
+        List<Bogie> list = List.of(
                 new Bogie("Sleeper", 72)
         );
 
